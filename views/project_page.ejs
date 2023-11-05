@@ -1,0 +1,26 @@
+<!-- This code defines a section for displaying project information and includes a partial template for issues. -->
+
+<div class="w-50 border border-secondary border-1 p-3 m-auto">
+  <!-- A container with a 50% width and border styling. It's centered in its parent container. -->
+  
+  <h3 class="display-5 p-3 mb-2 bg-secondary text-white">
+    <!-- A heading with a large font size, a secondary background color, and white text. -->
+    Project : <%= project.name %>
+    <!-- Dynamically inserts the project's name using embedded JavaScript. -->
+  </h3>
+  
+  <h4 class="display-6 p-3 mb-2 bg-light text-dark">
+    <!-- A heading with a slightly smaller font size, a light background color, and dark text. -->
+    Author : <%= project.author %>
+    <!-- Dynamically inserts the project's author using embedded JavaScript. -->
+  </h4>
+  
+  <h5 class="display-6 p-3 mb-2 bg-info text-dark">
+    <!-- Another heading with a font size similar to the author, an info background color, and dark text. -->
+    Description : <%= project.description %>
+    <!-- Dynamically inserts the project's description using embedded JavaScript. -->
+  </h5>
+</div>
+
+<%- include('./partials/_issues'); %>
+<!-- Includes an external partial template for issues. The '-' indicates that HTML should not be escaped in the included file. -->

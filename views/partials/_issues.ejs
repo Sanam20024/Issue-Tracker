@@ -1,0 +1,102 @@
+<!-- This partial contains two buttons for interacting with issues:
+1. "Show All Issues" button that triggers a modal to display all project issues.
+2. "Filter Issues" button that opens a modal to apply filters for searching issues based on labels and authors. -->
+
+<% if(project.issues.length >= 1) { %>
+  <div class="w-50 my-5 d-flex justify-content-around mx-auto">
+    <div>
+      <!-- Button to show all issues in a modal -->
+      <button
+        type="button"
+        class="btn btn-primary"
+        style="
+          --bs-btn-padding-y: 0.25rem;
+          --bs-btn-padding-x: 0.5rem;
+          --bs-btn-font-size: 1rem;
+        "
+        data-bs-toggle="modal"
+        data-bs-target="#allIssue"
+      >
+        Show All Issues
+      </button>
+  
+      <!-- Modal for displaying all issues -->
+      <div
+        class="modal fade"
+        id="allIssue"
+        tabindex="-1"
+        aria-labelledby="allIssueLabel"
+        aria-hidden="true"
+      >
+        <!-- Modal content to show all issues -->
+      </div>
+    </div>
+    <div>
+      <!-- Button to filter issues in a modal -->
+      <button
+        type="button"
+        class="btn btn-primary"
+        style="
+          --bs-btn-padding-y: 0.25rem;
+          --bs-btn-padding-x: 0.5rem;
+          --bs-btn-font-size: 1rem;
+        "
+        data-bs-toggle="modal"
+        data-bs-target="#staticBackdrop"
+      >
+        Filter Issues
+      </button>
+  
+      <!-- Modal for applying issue filters -->
+      <div
+        class="modal fade"
+        id="staticBackdrop"
+        tabindex="-1"
+        aria-labelledby="staticBackdropLabel"
+        aria-hidden="true"
+      >
+        <!-- Modal content for filtering issues -->
+      </div>
+    </div>
+    <div>
+      <!-- Button to search issues in a modal -->
+      <button
+        type="button"
+        class="btn btn-primary"
+        style="
+          --bs-btn-padding-y: 0.25rem;
+          --bs-btn-padding-x: 0.5rem;
+          --bs-btn-font-size: 1rem;
+        "
+        data-bs-toggle="modal"
+        data-bs-target="#searchmodal"
+      >
+        Search Issues
+      </button>
+  
+      <!-- Modal for searching issues based on title and description -->
+      <div
+        class="modal fade"
+        id="searchmodal"
+        tabindex="-1"
+        aria-labelledby="searchmodalLabel"
+        aria-hidden="true"
+      >
+        <!-- Modal content for searching issues -->
+      </div>
+    </div>
+  </div>
+  <% } %>
+  
+  <!-- Container to display filtered or searched issues -->
+  <div class="w-50 mb-5 mx-auto">
+    <div class="card w-100 mb-5" style="width: 18rem" id="issues-list"></div>
+  </div>
+  
+  <!-- Hidden data element for passing issues to JavaScript -->
+  <div id="issue-data" data="<%=JSON.stringify(project.issues)%>"></div>
+  
+  <!-- Include JavaScript files for filtering and searching issues -->
+  <script src="/js/filterIssues.js"></script>
+  <script src="/js/searchIssues.js"></script>
+  

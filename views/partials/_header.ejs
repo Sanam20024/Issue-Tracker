@@ -1,0 +1,16 @@
+<!-- This navigation bar displays different buttons based on the page's title.
+     It shows the "Create Project" button on the project page and the "Create Issue" button if the project is open. -->
+     <nav class="navbar navbar-expand-sm bg-light">
+      <div class="container-fluid">
+        <!-- Application title link -->
+        <a class="navbar-brand ms-4" href="/" style="font-weight:bolder"> Issue Tracker </a>
+        <% if( title === "Project Page"){ %> <!-- Check if the title is "Project Page" -->
+          <!-- Include the "_issue_form" partial for creating issues -->
+          <%- include('_issue_form'); %>
+        <% } else { %>
+          <!-- Include the "_project_form" partial for creating projects -->
+          <%- include('_project_form'); %>
+        <% } %>
+      </div>
+    </nav>
+    
